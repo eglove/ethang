@@ -1,3 +1,13 @@
+```
+pnpm i @ethang/utilties fast-xml-parser uuid validator
+```
+```
+yarn i @ethang/utilties fast-xml-parser uuid validator
+```
+```
+npm i @ethang/utilties fast-xml-parser uuid validator
+```
+
 # Exported Members
 
 ## Constants

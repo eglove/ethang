@@ -1,11 +1,13 @@
+Random assortment of utilities.
+
 ```
-pnpm i @ethang/utilties fast-xml-parser uuid validator
+pnpm i @ethang/utilities fast-xml-parser tslib uuid validator
 ```
 ```
-yarn i @ethang/utilties fast-xml-parser uuid validator
+yarn i @ethang/utilities fast-xml-parser tslib uuid validator
 ```
 ```
-npm i @ethang/utilties fast-xml-parser uuid validator
+npm i @ethang/utilities fast-xml-parser tslib uuid validator
 ```
 
 # Exported Members

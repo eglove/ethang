@@ -1,8 +1,9 @@
 {
   "name": "@ethang/utilities",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "fast-xml-parser": "^4.0.8",
+    "tslib": "^2.3.0",
     "uuid": "^8.3.2",
     "validator": "^13.7.0"
   }

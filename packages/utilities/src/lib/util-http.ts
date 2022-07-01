@@ -30,6 +30,16 @@ export const isLocalhost = (): boolean => {
   return false;
 };
 
+export const isValidUrl = (string: string): boolean => {
+  try {
+    new URL(string);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+
 export const removeQueryParameters = (): void => {
   if (typeof globalThis !== 'undefined') {
     globalThis.history.replaceState(
@@ -63,3 +73,4 @@ export const swrFetcher = async <ResponseType>(
     return (await response.json()) as ResponseType;
   });
 };
+

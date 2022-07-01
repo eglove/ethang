@@ -14,10 +14,6 @@ export const isValidPhoneNumber = (string: string): boolean => {
   return validator.isMobilePhone(string);
 };
 
-export const isValidUrl = (string: string): boolean => {
-  return validator.isURL(string);
-};
-
 export const isAlphaNumeric = (string: string): boolean => {
   return validator.isAlpha(string);
 };

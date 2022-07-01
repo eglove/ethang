@@ -8,14 +8,6 @@ export enum HTTP_METHOD {
 
 export const JSON_HEADER = { 'Content-Type': 'application/json' };
 
-export const fetcher = async <ResponseType>(
-  ...arguments_: [input: RequestInfo, init?: RequestInit]
-): Promise<ResponseType> => {
-  return fetch(...arguments_).then(async response => {
-    return (await response.json()) as ResponseType;
-  });
-};
-
 export const isBrowser = typeof window !== 'undefined';
 
 export const isClient = Boolean(
@@ -64,11 +56,10 @@ export const successfullySettledPromises = async <Type>(
   return returnData;
 };
 
-// For use with swr package.
-export const swrFetcher = async <Type>(
-  ...arguments_: unknown[]
-): Promise<Type> => {
-  // @ts-expect-error Using SWR documentation https://github.com/vercel/swr/blob/master/examples/api-hooks/libs/fetch.js
-  const response = await fetch(...arguments_);
-  return (await response.json()) as Type;
+export const swrFetcher = async <ResponseType>(
+    ...arguments_: [input: RequestInfo, init?: RequestInit]
+): Promise<ResponseType> => {
+  return fetch(...arguments_).then(async response => {
+    return (await response.json()) as ResponseType;
+  });
 };

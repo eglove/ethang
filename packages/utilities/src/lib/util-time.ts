@@ -102,7 +102,7 @@ export const dayStartEnd = (
 };
 
 // Default format needed for HTML input forms
-export const defaultDateTimeInputFormat = (
+export const htmlInputDateTimeInputFormat = (
   date: Date | number | string = new Date()
 ): string => {
   const newDate = new Date(date);

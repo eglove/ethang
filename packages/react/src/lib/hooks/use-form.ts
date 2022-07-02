@@ -15,7 +15,7 @@ export interface UserFormReturn<StateType> {
     setFormState: Dispatch<SetStateAction<StateType>>;
 }
 
-export const useForm = <StateType>(initialState: StateType, properties: UseFormProperties) => {
+export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties) => {
     const [formState, setFormState] = useState(initialState);
 
     const handleInputChange = (event: ChangeEvent): void => {
@@ -44,7 +44,7 @@ export const useForm = <StateType>(initialState: StateType, properties: UseFormP
             }
         })
 
-        if (typeof properties.onChange !== 'undefined') {
+        if (typeof properties?.onChange !== 'undefined') {
             properties.onChange(event);
         }
     }
@@ -66,13 +66,13 @@ export const useForm = <StateType>(initialState: StateType, properties: UseFormP
     const handleSubmit = (event: FormEvent): void => {
         event.preventDefault();
 
-        if (properties.formActionAfterSubmit === 'clear') {
+        if (properties?.formActionAfterSubmit === 'clear') {
             clearForm();
-        } else if (properties.formActionAfterSubmit === 'reset') {
+        } else if (properties?.formActionAfterSubmit === 'reset') {
             resetForm();
         }
 
-        if (typeof properties.onSubmit !== 'undefined') {
+        if (typeof properties?.onSubmit !== 'undefined') {
             properties.onSubmit();
         }
     }

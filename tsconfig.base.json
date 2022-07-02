@@ -10,11 +10,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2021", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ethang/react": ["packages/react/src/index.ts"],
       "@ethang/utilities": ["packages/utilities/src/index.ts"]
     }
   },

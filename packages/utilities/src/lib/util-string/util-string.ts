@@ -48,7 +48,6 @@ export const formatList = (list: string[]): string => {
     list.pop();
   }
 
-  // @ts-expect-error This exists
   const formatter = new Intl.ListFormat('en', {
     style: 'long',
     type: 'conjunction',

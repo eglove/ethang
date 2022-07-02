@@ -9,13 +9,15 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "ZmQ3ZjBjZmItOWY5ZC00OGRmLWFmNDktOGJlNzhkNGIyM2Y0fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
       }
     }
   }

@@ -10,3 +10,4 @@ export * from './lib/util-string/validate-ip';
 export * from './lib/util-time';
 export * from './lib/util-type';
 export * from './lib/util-url';
+export * from './lib/util-currency';

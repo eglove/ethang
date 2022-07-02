@@ -2,7 +2,10 @@
   "name": "ethang",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "pubutils": "npm publish -ws ./dist/packages/utilities/",
+    "pubreact": "npm publish -ws ./dist/packages/react/"
+  },
   "private": true,
   "workspaces": [
     "packages/**"

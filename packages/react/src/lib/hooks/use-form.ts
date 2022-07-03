@@ -8,15 +8,18 @@ export interface UseFormProperties {
 
 export interface UserFormReturn<StateType> {
     clearForm: () => void;
+    fieldErrors: Record<keyof StateType, string>;
     formState: StateType;
     handleInputChange: (event: ChangeEvent) => void;
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
     resetForm: () => void;
+    setFieldErrors: Dispatch<SetStateAction<Record<keyof StateType, string>>>
     setFormState: Dispatch<SetStateAction<StateType>>;
 }
 
 export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties) => {
     const [formState, setFormState] = useState(initialState);
+    const [fieldErrors, setFieldErrors] = useState<Record<keyof StateType, string>>();
 
     const handleInputChange = (event: ChangeEvent): void => {
         const eventTarget = event.target as unknown as {
@@ -79,6 +82,8 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
 
     return {
         clearForm,
+        fieldErrors,
+        setFieldErrors,
         formState,
         handleInputChange,
         handleSubmit,

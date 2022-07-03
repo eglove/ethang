@@ -7,6 +7,7 @@ export interface UseFormProperties {
 }
 
 export interface UserFormReturn<StateType> {
+    clearFieldErrors: () => void;
     clearForm: () => void;
     fieldErrors: Record<keyof StateType, string>;
     formState: StateType;
@@ -20,6 +21,10 @@ export interface UserFormReturn<StateType> {
 export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties) => {
     const [formState, setFormState] = useState(initialState);
     const [fieldErrors, setFieldErrors] = useState<Record<keyof StateType, string>>();
+
+    const clearFieldErrors = () => {
+        setFieldErrors(undefined);
+    }
 
     const handleInputChange = (event: ChangeEvent): void => {
         const eventTarget = event.target as unknown as {
@@ -55,7 +60,7 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
     const clearForm = (): void => {
         const blankState = Object.fromEntries(
             Object.entries(formState).map(([key]) => {
-                return [key, ''];
+                return [key, undefined];
             })
         ) as unknown as StateType;
 
@@ -81,6 +86,7 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
     }
 
     return {
+        clearFieldErrors,
         clearForm,
         fieldErrors,
         setFieldErrors,

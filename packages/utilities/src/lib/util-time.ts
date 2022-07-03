@@ -47,9 +47,10 @@ export const arrayOfDaysBetweenDays = ({
   return dateList;
 };
 
-export const beforeMidnight = (date = new Date()): number => {
+export const beforeMidnight = (date = new Date()): Date => {
   date.setHours(24, 0, 0, 0);
-  return date.getTime() - 1;
+  date.setSeconds(date.getSeconds() - 1);
+  return date;
 };
 
 export const convertTimeZone = (

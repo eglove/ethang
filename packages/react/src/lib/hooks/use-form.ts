@@ -9,12 +9,12 @@ export interface UseFormProperties {
 export interface UserFormReturn<StateType> {
     clearFieldErrors: () => void;
     clearForm: () => void;
-    fieldErrors: Record<keyof StateType, string>;
+    fieldErrors: Record<keyof StateType, string | undefined>;
     formState: StateType;
     handleInputChange: (event: ChangeEvent) => void;
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
     resetForm: () => void;
-    setFieldErrors: Dispatch<SetStateAction<Record<keyof StateType, string>>>
+    setFieldErrors: Dispatch<SetStateAction<Record<keyof StateType, string | undefined>>>
     setFormState: Dispatch<SetStateAction<StateType>>;
 }
 

@@ -20,7 +20,7 @@ export interface UserFormReturn<StateType> {
 
 export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties) => {
     const [formState, setFormState] = useState(initialState);
-    const [fieldErrors, setFieldErrors] = useState<Record<keyof StateType, string | undefined>>();
+    const [fieldErrors, setFieldErrors] = useState<Record<keyof StateType, string[] | undefined>>();
 
     const clearFieldErrors = () => {
         setFieldErrors(undefined);

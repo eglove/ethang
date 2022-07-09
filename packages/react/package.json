@@ -1,6 +1,6 @@
 {
   "name": "@ethang/react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "peerDependencies": {
     "react": "^18.2.0"
   }

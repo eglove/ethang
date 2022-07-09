@@ -6,20 +6,25 @@ export interface UseFormProperties {
     onSubmit?: (...arguments_: unknown[]) => unknown;
 }
 
-export interface UserFormReturn<StateType> {
+type FieldError<StateType> = Record<keyof StateType, string[] | undefined> | undefined;
+
+export interface UseFormReturn<StateType> {
     clearFieldErrors: () => void;
     clearForm: () => void;
-    fieldErrors: Record<keyof StateType, string | undefined>;
+    fieldErrors: FieldError<StateType>;
+    formError: string | undefined;
+    setFormError: Dispatch<SetStateAction<string | undefined>>
     formState: StateType;
     handleInputChange: (event: ChangeEvent) => void;
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
     resetForm: () => void;
-    setFieldErrors: Dispatch<SetStateAction<Record<keyof StateType, string | undefined>>>
+    setFieldErrors: Dispatch<SetStateAction<FieldError<StateType>>>;
     setFormState: Dispatch<SetStateAction<StateType>>;
 }
 
-export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties) => {
+export const useForm = <StateType>(initialState: StateType, properties?: UseFormProperties): UseFormReturn<StateType> => {
     const [formState, setFormState] = useState(initialState);
+    const [formError, setFormError] = useState<string>();
     const [fieldErrors, setFieldErrors] = useState<Record<keyof StateType, string[] | undefined>>();
 
     const clearFieldErrors = () => {
@@ -88,6 +93,8 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
     return {
         clearFieldErrors,
         clearForm,
+        formError,
+        setFormError,
         fieldErrors,
         setFieldErrors,
         formState,

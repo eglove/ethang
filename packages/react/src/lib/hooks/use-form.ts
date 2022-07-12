@@ -34,14 +34,19 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
 
     const handleInputChange = (event: ChangeEvent): void => {
         const eventTarget = event.target as unknown as {
+            checked?: boolean;
             files: File[];
             name: string;
             type: string;
-            value: string | number | File;
+            value: string | boolean | number | File;
         };
 
         let {value} = eventTarget;
         const {name, type, files} = eventTarget;
+
+        if (type === 'checkbox' && typeof eventTarget.checked === 'boolean') {
+            value = eventTarget.checked;
+        }
 
         if (type === 'number' && typeof value === 'string') {
             value = Number.parseFloat(value.replaceAll(',', ''))
@@ -58,9 +63,7 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
             }
         })
 
-        if (typeof properties?.onChange !== 'undefined') {
-            properties.onChange(event);
-        }
+        properties?.onChange?.(event);
     }
 
     const clearForm = (): void => {

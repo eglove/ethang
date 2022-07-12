@@ -3,7 +3,7 @@ import {ChangeEvent, Dispatch, FormEvent, SetStateAction, useState} from "react"
 export interface UseFormProperties {
     formActionAfterSubmit?: 'clear' | 'reset';
     onChange?: (event: ChangeEvent) => unknown;
-    onError?: () => unknown;
+    onError?: (error: unknown) => unknown;
     onSubmit?: (...arguments_: unknown[]) => unknown;
 }
 
@@ -95,7 +95,7 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
                 clearFieldErrors();
                 setFormError(undefined);
             } catch (error: unknown) {
-                properties?.onError?.();
+                properties?.onError?.(error);
 
                 if (error instanceof Error) {
                     setFormError(error.message);

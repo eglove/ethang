@@ -1,4 +1,5 @@
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction, useState} from "react";
+import {handleInputChange} from "../form/handle-input-change";
 
 export interface UseFormProperties {
     formActionAfterSubmit?: 'clear' | 'reset';
@@ -32,38 +33,12 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
         setFieldErrors(undefined);
     }
 
-    const handleInputChange = (event: ChangeEvent): void => {
-        const eventTarget = event.target as unknown as {
-            checked?: boolean;
-            files: File[];
-            name: string;
-            type: string;
-            value: string | boolean | number | File;
-        };
-
-        let {value} = eventTarget;
-        const {name, type, files} = eventTarget;
-
-        if (type === 'checkbox' && typeof eventTarget.checked === 'boolean') {
-            value = eventTarget.checked;
-        }
-
-        if (type === 'number' && typeof value === 'string') {
-            value = Number.parseFloat(value.replaceAll(',', ''))
-        }
-
-        if (type === 'file') {
-            [value] = files;
-        }
-
-        setFormState(formState_ => {
-            return {
-                ...formState_,
-                [name]: value,
-            }
+    const handleChange = (event: ChangeEvent): void => {
+        handleInputChange({
+            event,
+            onChange: properties?.onChange,
+            setFormState,
         })
-
-        properties?.onChange?.(event);
     }
 
     const clearForm = (): void => {
@@ -112,7 +87,7 @@ export const useForm = <StateType>(initialState: StateType, properties?: UseForm
         fieldErrors,
         setFieldErrors,
         formState,
-        handleInputChange,
+        handleInputChange: handleChange,
         handleSubmit,
         resetForm,
         setFormState,

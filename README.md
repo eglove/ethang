@@ -4,7 +4,19 @@ https://nx.dev/structure/buildable-and-publishable-libraries
 
 nx g @nrwl/node:library lib --publishable --importPath="@ethang/lib" --tags="scope:public"
 
-## TypeScript
+## BrowsersList
+
+```
+browserslist-config-google
+```
+
+```
+"browserslist": [
+"extends browserslist-config-google"
+],
+```
+
+## tsconfig.json
 
 ```
 {
@@ -26,10 +38,10 @@ nx g @nrwl/node:library lib --publishable --importPath="@ethang/lib" --tags="sco
 ## Stylelint
 
 ```
-i stylelint stylelint-a11y stylelint-config-prettier stylelint-config-recess-order stylelint-config-standard stylelint-config-xo-space stylelint-no-unsupported-browser-features   
+stylelint stylelint-a11y stylelint-config-prettier stylelint-config-recess-order stylelint-config-standard stylelint-config-xo-space stylelint-no-unsupported-browser-features   
 ```
 
-Config
+.stylelintrc
 
 ```
 {
@@ -40,21 +52,24 @@ Config
     "stylelint-a11y/recommended",
     "stylelint-no-unsupported-browser-features",
     "stylelint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "color-no-hex": true
+  }
 }
 ```
 
 ## EsLint
 
 ```
-i @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-config-xo eslint-config-xo-react eslint-config-xo-space eslint-config-xo-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort eslint-plugin-sonarjs eslint-plugin-sort-keys-fix eslint-plugin-typescript-sort-keys eslint-plugin-unicorn eslint-plugin-unused-imports prettier typescript                
+@typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-config-xo eslint-config-xo-react eslint-config-xo-space eslint-config-xo-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort eslint-plugin-sonarjs eslint-plugin-sort-keys-fix eslint-plugin-typescript-sort-keys eslint-plugin-unicorn eslint-plugin-unused-imports prettier typescript                
 ``` 
 
-Config
+.eslintrc.json
 
 ```
 {
-  'extends': [
+  "extends": [
     "xo-space",
     "xo-typescript/space",
     "xo-react",
@@ -63,7 +78,7 @@ Config
     "plugin:jsx-a11y/recommended",
     "prettier"
   ],
-  plugins: [
+  "plugins": [
     "simple-import-sort",
     "sort-keys-fix",
     "unused-imports",
@@ -134,6 +149,24 @@ Config
         "argsIgnorePattern": "^_"
       }
     ]
-  },
+  }
 }
+```
+
+## .editorconfig
+
+```
+root = true
+
+[*]
+end_of_line = crlf
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
 ```

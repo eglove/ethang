@@ -1,0 +1,34 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/trussworks/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/trussworks/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/trussworks"],
+      "options": {
+        "jestConfig": "packages/trussworks/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/trussworks",
+        "tsConfig": "packages/trussworks/tsconfig.lib.json",
+        "packageJson": "packages/trussworks/package.json",
+        "main": "packages/trussworks/src/index.ts",
+        "assets": ["packages/trussworks/*.md"]
+      }
+    }
+  },
+  "tags": ["scope:public"]
+}

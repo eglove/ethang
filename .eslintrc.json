@@ -1,34 +1,117 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "extends": [
+    "xo-space",
+    "xo-typescript/space",
+    "xo-react",
+    "plugin:typescript-sort-keys/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "simple-import-sort",
+    "sort-keys-fix",
+    "unused-imports",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.base.json"
+  },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error"
+        ],
+        "@typescript-eslint/strict-boolean-expressions": "error",
+        "arrow-body-style": [
+          "error",
+          "always"
+        ],
+        "capitalized-comments": "off",
+        "max-params": "error",
+        "new-cap": "off",
+        "no-console": [
+          "error"
+        ],
+        "no-constant-binary-expression": "off",
+        "prettier/prettier": [
           "error",
           {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
+            "arrowParens": "avoid",
+            "trailingComma": "es5",
+            "semi": true,
+            "singleQuote": true,
+            "printWidth": 80,
+            "endOfLine": "auto"
+          }
+        ],
+        "react/function-component-definition": [
+          2,
+          {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
+          }
+        ],
+        "react/jsx-sort-props": [
+          2,
+          {
+            "callbacksLast": true,
+            "shorthandFirst": true,
+            "multiline": "last"
+          }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "react-hooks/exhaustive-deps": "error",
+        "react/require-default-props": "off",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "sort-keys-fix/sort-keys-fix": "error",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
           }
         ]
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
       "rules": {}
     }
   ]

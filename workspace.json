@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "react": "packages/react",
+    "trussworks": "packages/trussworks",
     "utilities": "packages/utilities"
   }
 }

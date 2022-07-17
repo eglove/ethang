@@ -26,6 +26,7 @@
       "@ethang/eslint": ["packages/eslint/src/index.ts"],
       "@ethang/react": ["packages/react/src/index.ts"],
       "@ethang/stylelint": ["packages/stylelint/src/index.ts"],
+      "@ethang/trussworks": ["packages/trussworks/src/index.ts"],
       "@ethang/utilities": ["packages/utilities/src/index.ts"]
     }
   },

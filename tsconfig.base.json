@@ -14,8 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": true,
+    "downLevelIteration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
     "paths": {
+      "@ethang/eslint": ["packages/eslint/src/index.ts"],
       "@ethang/react": ["packages/react/src/index.ts"],
+      "@ethang/stylelint": ["packages/stylelint/src/index.ts"],
       "@ethang/utilities": ["packages/utilities/src/index.ts"]
     }
   },

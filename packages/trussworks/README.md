@@ -1,5 +1,5 @@
 ```
-@trussworks/react-uswds react react-dom
+@ethang/trussworks @trussworks/react-uswds react tslib uswds
 ```
 
 ```

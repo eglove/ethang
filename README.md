@@ -7,7 +7,7 @@ nx g @nrwl/node:library lib --publishable --importPath="@ethang/lib" --tags="sco
 ## BrowsersList
 
 ```
-browserslist-config-google
+-D browserslist-config-google
 ```
 
 ```
@@ -38,7 +38,7 @@ browserslist-config-google
 ## Stylelint
 
 ```
-stylelint stylelint-a11y stylelint-config-prettier stylelint-config-recess-order stylelint-config-standard stylelint-config-xo-space stylelint-no-unsupported-browser-features   
+-D stylelint stylelint-a11y stylelint-config-prettier stylelint-config-recess-order stylelint-config-standard stylelint-config-xo-space stylelint-no-unsupported-browser-features   
 ```
 
 .stylelintrc
@@ -62,7 +62,7 @@ stylelint stylelint-a11y stylelint-config-prettier stylelint-config-recess-order
 ## EsLint
 
 ```
-@typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-config-xo eslint-config-xo-react eslint-config-xo-space eslint-config-xo-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort eslint-plugin-sonarjs eslint-plugin-sort-keys-fix eslint-plugin-typescript-sort-keys eslint-plugin-unicorn eslint-plugin-unused-imports prettier typescript                
+-D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-config-xo eslint-config-xo-react eslint-config-xo-space eslint-config-xo-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort eslint-plugin-sonarjs eslint-plugin-sort-keys-fix eslint-plugin-typescript-sort-keys eslint-plugin-unicorn eslint-plugin-unused-imports prettier typescript                
 ``` 
 
 .eslintrc.json

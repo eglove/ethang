@@ -2,9 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "eslint": "packages/eslint",
     "react": "packages/react",
-    "stylelint": "packages/stylelint",
     "utilities": "packages/utilities"
   }
 }

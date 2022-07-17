@@ -15,8 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "allowJs": true,
-    "checkJs": true,
-    "downLevelIteration": true,
     "esModuleInterop": true,
     "jsx": "react",
     "noFallthroughCasesInSwitch": true,

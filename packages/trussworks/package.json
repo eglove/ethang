@@ -1,9 +1,10 @@
 {
   "name": "@ethang/trussworks",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "peerDependencies": {
     "@trussworks/react-uswds": "^3.1.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "uswds": "^2.13.3"
   }
 }

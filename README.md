@@ -140,6 +140,7 @@ npm publish --access public
         "multiline": "last"
       }
     ],
+    "react/react-in-jsx-scope": "off",
     "react-hooks/exhaustive-deps": "error",
     "react/require-default-props": "off",
     "simple-import-sort/imports": "error",
